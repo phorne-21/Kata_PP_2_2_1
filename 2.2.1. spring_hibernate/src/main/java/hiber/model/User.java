@@ -73,12 +73,21 @@ public class User {
 
    @Override
    public String toString() {
-      return "User{" +
-              "id=" + id +
-              ", firstName='" + firstName + '\'' +
-              ", lastName='" + lastName + '\'' +
-              ", email='" + email + '\'' +
-              ", car=" + car.toString() +
-              '}';
+      StringBuilder sb = new StringBuilder().append("User{")
+              .append("id=")
+              .append(id)
+              .append(", firstName='")
+              .append(firstName)
+              .append('\'')
+              .append(", lastName='")
+              .append(lastName)
+              .append('\'')
+              .append(", email='")
+              .append(email)
+              .append('\'');
+      if (car != null) {
+         sb.append(", car=").append(car.toString());
+      }
+      return sb.append('}').toString();
    }
 }
