@@ -29,8 +29,8 @@ public class UserDaoImp implements UserDao {
 
    @Override
    public List<User> getUsersByCarModelAndCarSeries (String model, int series) {
-      String hql = "FROM User u JOIN u.car c" +
-              "WHERE c.model = :model AND c.series = :series";
+      String hql = "SELECT u FROM User u JOIN u.car c" +
+              " WHERE c.model = :model AND c.series = :series";
       Query<User> query= sessionFactory.getCurrentSession().createQuery(hql, User.class);
       query.setParameter("model", model)
            .setParameter("series", series);
